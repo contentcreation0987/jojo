@@ -30,21 +30,30 @@ build, so leave the build command empty and set the publish directory to `/`.
 
 ### Vercel
 
-```bash
-npm i -g vercel
-vercel
-```
+There is deliberately **no `vercel.json`**. Vercel's zero-config static hosting
+serves this folder correctly on its own, and every config option that could be set
+here (`outputDirectory`, `cleanUrls`, rewrites) is a way to break it.
 
-Accept the defaults. `vercel.json` already tells it this is a static site with no
-framework and no build step.
+Import the repo at <https://vercel.com/new>, pick **Other** as the framework, and
+leave the build command and output directory **blank**.
 
-Or import the repo at <https://vercel.com/new> — pick **Other** as the framework,
-leave the build command blank, and set the output directory to `.`.
+**If you get `404: NOT_FOUND`, this is the reason:** `index.html` must sit at the
+*root* of whatever directory Vercel is serving. Two ways to satisfy that —
+
+1. Push the **contents** of this folder to the repo root, so `index.html` is the
+   first thing in the repo. Nothing else to configure.
+2. Or, if the repo keeps them inside a `site/` folder, open the Vercel project →
+   **Settings → Build and Deployment → Root Directory** → set it to `site`, then
+   redeploy.
+
+A 404 is always this — Vercel is looking at a directory with no `index.html` in it.
+It is never a problem with the page code.
 
 ### GitHub Pages
 
 Push to GitHub, then Settings → Pages → deploy from branch `main`, folder `/ (root)`.
-The `.nojekyll` file is already here so Pages serves every file as-is.
+The `.nojekyll` file is already here so Pages serves every file as-is. The same
+root-directory rule applies: `index.html` has to be at the folder you point Pages at.
 
 ## What's real and what isn't
 
