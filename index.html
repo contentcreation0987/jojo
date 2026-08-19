@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JOJO International — Japanese cars, delivered to your port</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="intro.css">
+<style>html,body{margin:0;background:var(--surface-page)}#root{min-height:100vh}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds_bundle.js"></script>
+<script src="app/data.js"></script>
+</head><body>
+<div id="jojo-splash"><div class="mark"><img src="assets/logo/jojo-international-white.png" alt="JOJO International" fetchpriority="high"><div class="rule"></div></div></div>
+<div id="root"></div>
+<script type="text/babel" src="app/footer.jsx"></script>
+<script type="text/babel" src="app/shell.jsx"></script>
+<script type="text/babel" src="app/home.jsx"></script>
+<script type="text/babel" src="app/how-it-works.jsx"></script>
+<script type="text/babel" src="app/featured-cars.jsx"></script>
+<script type="text/babel" src="app/about.jsx"></script>
+<script type="text/babel" src="app/contact.jsx"></script>
+<script src="motion.js" defer></script>
+<script type="text/babel">
+const PAGES = { "#home": "Home", "#how-it-works": "HowItWorks", "#featured": "FeaturedCars", "#about": "About", "#contact": "Contact" };
+
+function App() {
+  const [page, setPage] = React.useState("#home");
+  const navigate = (link) => {
+    const href = link && link.href;
+    if (!PAGES[href]) return;
+    setPage(href);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+  const Screen = window[PAGES[page]] || window.Home;
+  return <Shell page={page} onNavigate={navigate}><Screen onNavigate={navigate} /></Shell>;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body></html>

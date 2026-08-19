@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MI Logistics — domestic transport, Pakistan</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="intro.css">
+<style>html,body{margin:0;background:var(--surface-page)}#root{min-height:100vh}</style>
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous" defer></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous" defer></script>
+<!-- Must register <pakistan-map-3d> BEFORE _ds_bundle.js: the bundle carries a
+     compiled copy of this same component, and whichever defines first wins. -->
+<script src="mi/pakistan-map-3d.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds_bundle.js"></script>
+<script src="mi/data.js"></script>
+</head><body>
+<div id="jojo-splash"><div class="mark"><img src="assets/logo/mi-logistics-trimmed.png" alt="MI Logistics" fetchpriority="high" style="height:clamp(46px,7.2vw,74px)"><div class="rule"></div></div></div>
+<div id="root"></div>
+<script type="text/babel" src="mi/quote-form.jsx"></script>
+<script type="text/babel" src="mi/coverage.jsx"></script>
+<script type="text/babel" src="mi/quote-tool.jsx"></script>
+<script src="motion.js" defer></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("root")).render(<QuoteTool />);
+</script>
+</body></html>
