@@ -91,8 +91,14 @@ but they'll break when those hosts change or the cars sell. Download them into
   Filenames are kebab-case; each file still defines PascalCase components internally.
 - If a deploy ever comes up blank, wait five seconds: a boot check replaces the empty
   page with a message naming exactly which dependency failed to load.
-- `responsive.css` — breakpoints at 1080 / 820 / 560px.
-- `intro.css` + `motion.js` — the logo intro and the scroll-reveal animations.
+- `responsive.css` — breakpoints at 1080 / 820 / 640 / 560px. The 640 block is the
+  phone layer: it collapses the info strip to one swipeable row (badge first),
+  stops the nav bar overflowing, and drops body copy to 16px.
+- `intro.css` + `motion.js` — the logo intro and the scroll-reveal animations. The
+  splash holds until React has painted (4s cap) so the intro is actually seen on a
+  slow phone instead of fading out over a blank screen. Both respect
+  `prefers-reduced-motion`: if a phone has battery saver or "remove animations"
+  switched on, the splash and reveals are skipped by design and content shows at once.
 - `mi/pakistan-map-3d.js` — the draggable 3D map.
 
 One note for whoever picks this up in a code editor: JSX is transpiled in the browser

@@ -9,16 +9,37 @@
 (function () {
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- intro splash ---- */
+  /* ---- intro splash ----
+     Held until the app has actually painted, so the logo animation is seen on a
+     slow phone instead of fading out over a blank screen. Capped so a failed
+     render can never leave the splash up. */
   var splash = document.getElementById("jojo-splash");
   if (splash) {
     if (reduce) splash.remove();
     else {
+      var t0 = Date.now();
       var kill = function () { splash && splash.remove(); splash = null; };
-      splash.addEventListener("animationend", function (e) {
-        if (e.target === splash) kill();
-      });
-      setTimeout(kill, 2000); /* belt and braces */
+      var dismissed = false;
+      var dismiss = function () {
+        if (dismissed || !splash) return;
+        dismissed = true;
+        setTimeout(function () {
+          if (!splash) return;
+          splash.classList.add("go");
+          setTimeout(kill, 620);
+        }, Math.max(0, 950 - (Date.now() - t0)));
+      };
+      var app = document.getElementById("root");
+      if (app) {
+        if (app.children.length) dismiss();
+        else {
+          var mo = new MutationObserver(function () {
+            if (app.children.length) { mo.disconnect(); dismiss(); }
+          });
+          mo.observe(app, { childList: true });
+        }
+      }
+      setTimeout(dismiss, 4000); /* belt and braces */
     }
   }
 

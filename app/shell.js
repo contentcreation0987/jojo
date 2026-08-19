@@ -6,6 +6,7 @@ function Shell({ page, onNavigate, children }) {
   return (
     <div style={{ minHeight: "100%", background: "var(--surface-page)" }}>
       <InfoStrip
+        data-jojo-infostrip=""
         items={[
           { icon: "message-circle", text: d.phoneDisplay, href: "https://wa.me/" + d.whatsapp },
           { icon: "mail", text: d.email, href: "mailto:" + d.email },

@@ -68,3 +68,42 @@ img,svg,video{max-width:100%}
   [data-jojo-nav-cta] a{padding-inline:13px}
   pakistan-map-3d{height:300px!important}
 }
+
+/* ---------------- 640: phone ----------------
+   Three problems the wider breakpoints did not solve, all visible on a 375px phone:
+
+   1. The info strip wrapped one item per line — phone, email, hours and the badge
+      ate ~180px above the fold. It is now a single non-wrapping row you can swipe.
+   2. The nav bar overflowed: hiding the links removed the `margin-left:auto` that
+      was holding the right-hand group, so the CTA sat against the logo and pushed
+      the hamburger off-screen.
+   3. Body copy stayed at desktop size, so the hero paragraph ran to six lines. */
+@media (max-width:640px){
+  :root{--size-body-lg:16px;--size-body:15px;--infostrip-h:0px}
+
+  [data-jojo-infostrip]{min-height:0!important}
+  [data-jojo-infostrip]>div{flex-wrap:nowrap!important;overflow-x:auto;gap:var(--space-5)!important;padding-block:7px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  [data-jojo-infostrip]>div::-webkit-scrollbar{display:none}
+  [data-jojo-infostrip]>div>*{flex:0 0 auto;padding-block:0!important;white-space:nowrap}
+  [data-jojo-infostrip]>div>div:last-child{margin-left:var(--space-3)!important}
+}
+
+/* Nav: restore the right-hand push and stop the bar overflowing. */
+@media (max-width:820px){
+  div:has(> div > [data-jojo-nav-cta]){gap:var(--space-4)!important}
+  div:has(> [data-jojo-nav-cta]){margin-left:auto!important}
+}
+@media (max-width:560px){
+  a > img[src*="/logo/"]{height:28px!important}
+  [data-jojo-nav-cta] a{padding-inline:12px!important;font-size:12.5px!important;gap:6px!important}
+  :root{--section-y:44px;--section-y-tight:32px;--section-y-loose:52px}
+}
+
+/* Badge first on phones: the strip scrolls sideways, and "BeForward Authorized
+   Agent" is the one item that must be visible without swiping. */
+@media (max-width:640px){
+  [data-jojo-infostrip]>div{padding-block:9px}
+  [data-jojo-infostrip]>div>div:last-child{order:-1;margin-left:0!important;margin-right:var(--space-2)!important}
+  /* 80px of dead space between nav and hero label on a 375px screen */
+  main>section:first-of-type{padding-top:44px!important}
+}

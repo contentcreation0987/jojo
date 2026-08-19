@@ -5,6 +5,7 @@ function MiHeader() {
   return (
     <>
       <InfoStrip
+        data-jojo-infostrip=""
         items={[
           { icon: "message-circle", text: d.phoneDisplay, href: "https://wa.me/" + d.whatsapp },
           { icon: "clock", text: d.hours },
