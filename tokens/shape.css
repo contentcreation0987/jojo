@@ -1,0 +1,21 @@
+/* JOJO International — corner radii, borders, clips. */
+:root {
+  --radius-xs: 6px;
+  --radius-sm: 8px;   /* chips, inputs, small tiles */
+  --radius-md: 12px;
+  --radius-lg: 14px;  /* the default card radius across the brand */
+  --radius-xl: 20px;  /* hero media, large photo frames */
+  --radius-2xl: 28px;
+  --radius-pill: 999px; /* every button and tag is a pill */
+
+  --border-w: 1px;
+  --border-w-thick: 1.5px;
+
+  /* Diagonal-cut photo corner — the one "dynamic" geometry the brand allows */
+  --clip-diagonal-tr: polygon(0 0, calc(100% - 72px) 0, 100% 72px, 100% 100%, 0 100%); /* @kind other */
+  --clip-diagonal-bl: polygon(0 0, 100% 0, 100% 100%, 72px 100%, 0 calc(100% - 72px)); /* @kind other */
+
+  --hairline: var(--border-w) solid var(--border-hairline); /* @kind other */
+  --hairline-soft: var(--border-w) solid var(--border-soft); /* @kind other */
+  --hairline-strong: var(--border-w) solid var(--border-strong); /* @kind other */
+}

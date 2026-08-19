@@ -1,0 +1,18 @@
+/* JOJO International — elevation.
+   On a navy ground, "raised" reads as a 1px top highlight plus a wide soft
+   drop, never a grey blur. Floating cards (stat badge, finder, lead form)
+   get the deepest drop plus a hairline border. */
+:root {
+  --shadow-none: none;
+  --shadow-inset-top: inset 0 1px 0 rgba(244, 246, 251, 0.05);
+  --shadow-card: inset 0 1px 0 rgba(244, 246, 251, 0.05), 0 18px 40px -26px rgba(4, 7, 16, 0.9);
+  --shadow-card-hover: inset 0 1px 0 rgba(244, 246, 251, 0.08), 0 26px 54px -24px rgba(4, 7, 16, 0.95);
+  --shadow-float: inset 0 1px 0 rgba(244, 246, 251, 0.07), 0 30px 70px -22px rgba(4, 7, 16, 0.95);
+  --shadow-badge: 0 16px 36px -14px rgba(4, 7, 16, 0.85);
+  --shadow-nav: 0 12px 30px -18px rgba(4, 7, 16, 0.9);
+  --shadow-accent-glow: 0 14px 34px -16px rgba(78, 116, 255, 0.55);
+  --shadow-press: inset 0 2px 6px rgba(4, 7, 16, 0.5);
+
+  --blur-glass: 14px; /* @kind other */
+  --blur-nav: 18px; /* @kind other */
+}

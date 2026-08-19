@@ -1,0 +1,20 @@
+/* JOJO International — webfonts.
+   SUBSTITUTION NOTICE: the brief specifies Clash Display / General Sans / Neue Montreal (display)
+   and Satoshi / General Sans (body) — all Fontshare licences, no binaries supplied.
+   Nearest free equivalents are loaded from Google Fonts until the real files land:
+     Archivo      -> Neue Montreal / General Sans Bold (neo-grotesque, variable width 62–125 for condensed display)
+     Manrope      -> Satoshi / General Sans Regular (semi-geometric grotesk, open apertures)
+     JetBrains Mono -> bracket section labels (">> HOW IT WORKS") and meta rows
+   Swap the @import for local @font-face rules when licensed files are available; the
+   --font-* aliases below are the only thing the rest of the system references. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  --font-display: "Archivo", "Neue Montreal", "General Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Manrope", "Satoshi", "General Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Optical width axis on the display face — condensed for big stacked headlines */
+  --font-width-display: 96; /* @kind font */
+  --font-width-condensed: 82; /* @kind font */
+}
