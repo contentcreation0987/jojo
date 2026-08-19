@@ -76,8 +76,12 @@ but they'll break when those hosts change or the cars sell. Download them into
 - `styles.css` + `tokens/` — the JOJO design system: colours, type scale, spacing,
   shadows, motion. Every value on the site comes from a token.
 - `_ds_bundle.js` — 25 compiled UI components (buttons, cards, forms, nav, stats).
-- `app/` and `mi/` — the page code, in JSX compiled in the browser by Babel. Filenames are
-  kebab-case here; each file still defines PascalCase components internally.
+- `app/` and `mi/` — the page code, in JSX compiled in the browser by Babel. The files
+  end in `.js`, not `.jsx` (Babel goes by `type="text/babel"`, not the extension) —
+  some static hosts refuse to serve `.jsx`, which left the deployed page blank.
+  Filenames are kebab-case; each file still defines PascalCase components internally.
+- If a deploy ever comes up blank, wait five seconds: a boot check replaces the empty
+  page with a message naming exactly which dependency failed to load.
 - `responsive.css` — breakpoints at 1080 / 820 / 560px.
 - `intro.css` + `motion.js` — the logo intro and the scroll-reveal animations.
 - `mi/pakistan-map-3d.js` — the draggable 3D map.

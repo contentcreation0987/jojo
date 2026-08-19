@@ -18,11 +18,35 @@
 </head><body>
 <div id="jojo-splash"><div class="mark"><img src="assets/logo/mi-logistics-trimmed.png" alt="MI Logistics" fetchpriority="high" style="height:clamp(46px,7.2vw,74px)"><div class="rule"></div></div></div>
 <div id="root"></div>
-<script type="text/babel" src="mi/quote-form.jsx"></script>
-<script type="text/babel" src="mi/coverage.jsx"></script>
-<script type="text/babel" src="mi/quote-tool.jsx"></script>
+<script type="text/babel" src="mi/quote-form.js"></script>
+<script type="text/babel" src="mi/coverage.js"></script>
+<script type="text/babel" src="mi/quote-tool.js"></script>
 <script src="motion.js" defer></script>
 <script type="text/babel">
 ReactDOM.createRoot(document.getElementById("root")).render(<QuoteTool />);
+</script>
+<script>
+(function () {
+  setTimeout(function () {
+    var root = document.getElementById("root");
+    if (root && root.children.length) return;
+    var splash = document.getElementById("jojo-splash");
+    if (splash) splash.remove();
+    var missing = [];
+    if (!window.React) missing.push("React (unpkg.com blocked or offline?)");
+    if (!window.ReactDOM) missing.push("ReactDOM (unpkg.com blocked or offline?)");
+    if (!window.Babel) missing.push("Babel (unpkg.com blocked or offline?)");
+    if (!window.JOJOInternationalDesignSystem_e58ef5) missing.push("_ds_bundle.js");
+    if (!window.JOJO_DATA && !window.MI_DATA) missing.push("data.js");
+    if (!missing.length) missing.push("the page scripts did not run \u2014 check the console for a script error");
+    root.innerHTML =
+      '<div style="min-height:100vh;display:grid;place-items:center;padding:32px;' +
+      'font:15px/1.6 ui-sans-serif,system-ui,sans-serif;color:#C7CEE0;background:#0D1225;text-align:center">' +
+      '<div style="max-width:560px"><div style="font-size:19px;font-weight:700;color:#fff;margin-bottom:12px">' +
+      'This page could not finish loading.</div><div>Missing: ' + missing.join(", ") +
+      '</div><div style="margin-top:18px"><a href="https://wa.me/923168301723" ' +
+      'style="color:#7C99FF">Chat with us on WhatsApp instead</a></div></div></div>';
+  }, 5000);
+})();
 </script>
 </body></html>
