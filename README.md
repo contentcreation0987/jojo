@@ -66,6 +66,15 @@ root-directory rule applies: `index.html` has to be at the folder you point Page
   location and photography come from BeForward's live stock list
 - The MI Logistics coverage map is real Natural Earth border geometry, not a drawing
 
+**Hot-linked images** — one image still loads from `jojo-international.com` rather than
+from this repo. If that domain lapses it breaks. Save it into `assets/logo/` and switch
+the path in `app/home.js`:
+
+- `clients/logo-1.png` — JOJO Techzone logo, home page
+
+Team photography lives in `assets/team/` (supplied Aug 2026, resized for web):
+`founder.jpg`, `team-group.jpg`, `team-offsite.jpg`.
+
 **Still placeholder** — replace before this goes public:
 
 - The four stat figures on the home page (cars delivered, countries served, quote

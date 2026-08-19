@@ -38,9 +38,6 @@ function Hero({ onNavigate }) {
           <div style={{ position: "relative", height: 380, borderRadius: "var(--radius-xl)", overflow: "hidden", background: "linear-gradient(158deg, var(--navy-700), var(--navy-900))", border: "1px solid var(--border-hairline)", display: "grid", placeItems: "center" }}>
             <div style={{ position: "absolute", inset: 0, background: "var(--scrim-grade)" }} />
             <img src="assets/cars/toyota-land-cruiser-prado.png" alt="Toyota Land Cruiser Prado" style={{ position: "relative", width: "92%", objectFit: "contain" }} />
-            <div style={{ position: "absolute", left: 20, top: 18, font: "var(--type-meta)", color: "var(--text-subtle)" }}>
-              Placeholder — real hero photograph or 15s loop goes here
-            </div>
           </div>
           <StatBadge value="500+" label="Cars delivered" sublabel="Since 2016" style={{ position: "absolute", right: -18, bottom: -26 }} />
         </div>
@@ -134,8 +131,8 @@ function GroupCompanies() {
             delivery and fleet transport, city to city.
           </CompanyCard>
           <CompanyCard logo="https://jojo-international.com/assets/images/clients/logo-1.png" logoHeight={44} name="JOJO Techzone" tagline="Technology arm" linkLabel="Visit jojotechzone.com" href="http://jojotechzone.com/" target="_blank">
-            The group's technology company. Logo hot-linked from the live JOJO site — download it
-            into <code>assets/logo/</code> before launch.
+            The group's technology arm — IT services and hardware, run out of the same
+            Karachi office.
           </CompanyCard>
         </div>
       </div>
@@ -155,8 +152,10 @@ function Home({ onNavigate }) {
         title="A Karachi office, a Japanese supply chain, one WhatsApp thread."
         background="var(--surface-page)"
         diagonal
-        mediaSrc="https://jojo-international.com/assets/images/who-we-are-image.png"
-        mediaAlt="JOJO International sales floor"
+        mediaSrc="assets/team/team-offsite.jpg"
+        mediaAlt="The JOJO International team"
+        mediaHeight={360}
+        mediaPosition="center 62%"
         aside={<CheckList items={[
           "Authorized BeForward sales agent since 2016",
           "Inspection report and photos before you pay",

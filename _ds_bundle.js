@@ -1253,6 +1253,7 @@ function SplitSection({
   reverse = false,
   diagonal = false,
   mediaHeight = 420,
+  mediaPosition = "center",
   background = "var(--surface-page)",
   actions,
   aside,
@@ -1280,7 +1281,8 @@ function SplitSection({
     style: {
       width: "100%",
       height: "100%",
-      objectFit: "cover"
+      objectFit: "cover",
+      objectPosition: mediaPosition
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {

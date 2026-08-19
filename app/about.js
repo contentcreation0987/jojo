@@ -28,9 +28,10 @@ function About({ onNavigate }) {
       <SplitSection
         label="Our story" title="It started with one agency and a lot of questions."
         background="var(--surface-page)"
-        mediaSrc="https://jojo-international.com/assets/images/message-by-ceo-founder-image.png"
-        mediaAlt="Message by CEO / Founder"
-        mediaHeight={440}
+        mediaSrc="assets/team/founder.jpg"
+        mediaAlt="Founder, JOJO International"
+        mediaHeight={520}
+        mediaCaption="Founder — JOJO International, Karachi"
         aside={<blockquote style={{ margin: 0, padding: "var(--space-5)", background: "var(--surface-inset)", border: "1px solid var(--border-hairline)", borderRadius: "var(--radius-lg)", font: "var(--type-body)", color: "var(--text-body)", fontStyle: "italic" }}>
           "We have a vision to be the best Sales &amp; Marketing company across our markets. We want
           to build a company that creates shareholder value and delivers sustainable long-term
@@ -68,9 +69,10 @@ function About({ onNavigate }) {
       <SplitSection
         label="Office & team" title="Real people, at real desks, in Karachi." reverse
         background="var(--surface-page)"
-        mediaSrc="https://jojo-international.com/assets/images/about-us-image.png"
-        mediaAlt="JOJO International team"
-        mediaHeight={420}
+        mediaSrc="assets/team/team-group.jpg"
+        mediaAlt="The JOJO International team outside the Karachi office"
+        mediaHeight={360}
+        mediaPosition="center 55%"
         aside={<CheckList columns={1} items={[
           "Highly trained sales staff",
           "Fully equipped sales floor",
@@ -80,10 +82,6 @@ function About({ onNavigate }) {
         <p>
           You can visit. The office is Building A-314 in Block J, North Nazimabad, and if you're in
           Karachi we'd rather show you the operation than describe it.
-        </p>
-        <p style={{ font: "var(--type-sm)", color: "var(--text-subtle)" }}>
-          Note for the build: these photographs are hot-linked from the current live site. Download
-          them into <code>assets/</code>, and replace any that are stock rather than real.
         </p>
       </SplitSection>
 
